@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class OrderingOperation {
 	
 	//Declaring static file so that same file name can be used in multiple methods
-	static File directory= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Phase 2 Project\\files\\");
+	static File directory= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Java Project\\files\\");
 	public static void Asending() {
 		int option=1;
 		Scanner input=new Scanner(System.in);

@@ -9,15 +9,18 @@ import java.util.Scanner;
 public class BusinessLevelOperation {
 
 	public static void displaySub() {
-		Scanner inputSub=new Scanner(System.in);
 		int optionSub;
+	
+		
 		while(true) {
+		try {
 		System.out.println(" Option 1: Add a File\n" +
 				" Option 2: Delete a File\n" + 
 				" Option 3: Search a File\n" +
 				" Option 4: Return to Main Menu\n" +
 				" ______________Please Select Appropriate Option______________");
-				    optionSub=inputSub.nextInt();
+		Scanner inputSub=new Scanner(System.in);		    
+		optionSub=inputSub.nextInt();
 				    
 				    switch(optionSub) {
 						case 1:
@@ -29,7 +32,7 @@ public class BusinessLevelOperation {
 							DeleteFile();
 							break;
 						case 3:
-							System.out.println(" Searching a File");
+							System.out.println(" Enter a File Name to Search");
 							SearchFile();
 							break;						
 						case 4:
@@ -37,7 +40,13 @@ public class BusinessLevelOperation {
 							MainMenu.display();
 							break;
 				    }
-		}			    
+		}
+		catch(Exception e){				
+	    	optionSub = 4;
+	    }
+		}
+		
+		
 	}
 	public static void AddFile() {
 		
@@ -51,7 +60,7 @@ public class BusinessLevelOperation {
 			String fileName=sc.nextLine();
 			
 			//File path to store new file
-			FileOutputStream create=new FileOutputStream("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Phase 2 Project\\files\\"+fileName, true);  
+			FileOutputStream create=new FileOutputStream("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Java Project\\files\\"+fileName, true);  
 					
 			//Writing content in file
 			System.out.print(" Enter file content: ");         
@@ -74,7 +83,7 @@ public class BusinessLevelOperation {
 		Scanner del= new Scanner(System.in);
 		
 		//Initialising Directory path 
-		File Directory= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Phase 2 Project\\files\\");
+		File Directory= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Java Project\\files\\");
 		
 		String fileList[]= Directory.list();
 		for(int i=0;i<fileList.length;i++) {
@@ -83,7 +92,7 @@ public class BusinessLevelOperation {
 		
 		//Taking input from user to delete file by filename
 		String delFile=del.nextLine();
-		File deleteFile= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Phase 2 Project\\files\\"+delFile);
+		File deleteFile= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Java Project\\files\\"+delFile);
 
 		//Files gets deleted if user input is same as file name
 		if(deleteFile.delete()) {
@@ -100,7 +109,7 @@ public class BusinessLevelOperation {
 		try {
 		Scanner search= new Scanner(System.in);
 		String searchFile=search.nextLine();
-		File findFile= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Phase 2 Project\\files\\"+searchFile);
+		File findFile= new File("C:\\Users\\Kakaji\\eclipse-workspace\\FSD Java Project\\files\\"+searchFile);
 		
 		//If file exist then condition will be true
 		if(findFile.exists()) {

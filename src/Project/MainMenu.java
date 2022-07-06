@@ -13,25 +13,25 @@ public class MainMenu{
 				" *********************Developer Details*********************\n" +
 				" Name: Nikhil Gat\n" +
 				" Designation: Java Developer\n" + " Date: " + date.toLocaleString() +"\n" + 
-				" ************************Project Menu***********************");
+				" **************************Main Menu************************");
 	}
 	
 	public static void display(){
 		
-		try {
 		//Declaring data type integer 
-		int option = 1;
-		
-		//Scanner class is used to define input from user
-		Scanner input=new Scanner(System.in);
+	    int option = 1;
 		
 		//Declaring while loop to check condition 
-	    while(true) {
+	    while(true) {	
+	    	try {
 	    System.out.println(" Option 1: Arrange Files in Ascending Order\n" +
 	    		" Option 2: Perform Business Level Operations\n" + 
 	    		" Option 3: Stop this Application\n" + 
 	    		" ______________Please Select Appropriate Option______________");
-	    
+	  
+	    //Scanner class is used to define input from user
+	  		Scanner input=new Scanner(System.in);
+	  		
 	    //Excepting input from user in integer form
 	    option=input.nextInt();
 	    
@@ -42,6 +42,7 @@ public class MainMenu{
 	    			OrderingOperation.Asending();
 	    			break;
 	    		case 2:
+
 	    			System.out.println(" Business Level Operations");
 			
 	    			//Calling displaySub method from class BusinessLevelOperation to perform Business Level Operations
@@ -56,10 +57,10 @@ public class MainMenu{
 	    		default:
 	    			break;
 	    	}
-	    }
-		}
-	    catch(Exception e){  
-			e.printStackTrace();          
-			} 
+			}
+		    catch(Exception e){				
+		    	option = 4;			    
+	    	}
+	    } 
 	}
 }
